@@ -1,11 +1,9 @@
 using movie_api.Interface;
 using movie_api.Models;
-using movie_api.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-
-namespace JWTAuth.WebApi.Controllers
+namespace movie_api.Controllers
 {
     [Route("movie_archive")]
     [ApiController]
@@ -19,41 +17,48 @@ namespace JWTAuth.WebApi.Controllers
         }
 
         // GET movie_archive/list
+        [AllowAnonymous]
         [Route("/list")]
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<IEnumerable<Movies>>> Get()
         {
-            return await Task.FromResult(_IMovie.ListMovies());
+            if (_IMovie == null)
+                return BadRequest();
+            return Ok(await Task.FromResult(_IMovie.ListMovies()));
         }
 
         // GET movie_archive/get/id
+        [Authorize]
         [Route("/get/{id}")]
         [HttpGet()]
-        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<Movies>> Get(int id)
         {
             var Movies = await Task.FromResult(_IMovie.GetMoviesById(id));
             if (Movies == null)
-            {
                 return NotFound();
-            }
-            return Created("",Movies);
+            return Ok(Movies);
         }
 
         // POST movie_archive/add
+        [Authorize]
         [Route("/add")]
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<Movies>> Post(Movies Movies)
         {
             _IMovie.AddMovie(Movies);
-
-            return Ok(await Task.FromResult(Movies));
+            if (Movies == null)
+                return BadRequest();
+            return Created("",await Task.FromResult(Movies));
         }
 
         // PUT movie_archive/update/id
+        [Authorize]
         [Route("/update/{id}")]
         [HttpPut()]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -84,6 +89,7 @@ namespace JWTAuth.WebApi.Controllers
         }
 
         // DELETE movie_archive/delete/id
+        [Authorize]
         [Route("/delete/{id}")]
         [HttpDelete()]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -91,9 +97,7 @@ namespace JWTAuth.WebApi.Controllers
         public async Task<ActionResult<Movies>> Delete(int id)
         {
             if (!MoviesExists(id))
-            {
-                    return NotFound();
-            }
+                return NotFound();
             var Movies = _IMovie.DeleteMovie(id);
             return Ok( await Task.FromResult(Movies));
         }

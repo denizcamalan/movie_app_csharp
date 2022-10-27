@@ -5,7 +5,7 @@ namespace movie_api.Models
     public class Users
     {
         [Key]
-        public int Id { get; set; }
+        public int Id { get; }
         
         [Required(ErrorMessage = "This field is required")]
         [MaxLength(30, ErrorMessage = "This field must contain between 3 and 60 characters")]
@@ -16,7 +16,5 @@ namespace movie_api.Models
         [MaxLength(30, ErrorMessage = "This field must contain between 3 and 60 characters")]
         [MinLength(3,  ErrorMessage = "This field must contain between 3 and 60 characters")]
         public string? Password { get; set;}
-
-        public DateTime? CreatedDate { get; set; }
     }
 }

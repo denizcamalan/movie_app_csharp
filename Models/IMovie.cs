@@ -1,8 +1,4 @@
 using movie_api.Models;
-using movie_api.Data;
-using Microsoft.AspNetCore.Mvc;
-
-
 namespace movie_api.Interface
 {
     public interface IMovies

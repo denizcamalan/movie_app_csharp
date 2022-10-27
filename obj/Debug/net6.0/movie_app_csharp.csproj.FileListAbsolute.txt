@@ -70,3 +70,4 @@
 /Users/denizcamalan/respitories/movie_app_csharp/bin/Debug/net6.0/MySql.EntityFrameworkCore.dll
 /Users/denizcamalan/respitories/movie_app_csharp/bin/Debug/net6.0/Newtonsoft.Json.dll
 /Users/denizcamalan/respitories/movie_app_csharp/bin/Debug/net6.0/BouncyCastle.Crypto.dll
+/Users/denizcamalan/respitories/movie_app_csharp/bin/Debug/net6.0/Microsoft.IdentityModel.Abstractions.dll

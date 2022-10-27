@@ -2,8 +2,8 @@
 <Project DefaultTargets="Build">
   <Sdk Name="Microsoft.Build.Sql" Version="0.1.3-preview" />
   <PropertyGroup>
-    <Name>movie_app_csharp_db</Name>
-    <ProjectGuid>{6CD6146E-A28B-4706-B93D-0586CC7DD615}</ProjectGuid>
+    <Name>DatabaseProjectmovie_archive</Name>
+    <ProjectGuid>{31946D65-9A5A-4427-8356-5138A63F243C}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql150DatabaseSchemaProvider</DSP>
     <ModelCollation>1033, CI</ModelCollation>
   </PropertyGroup>
