@@ -1,12 +1,16 @@
 version: '3.1'
 services:
-  mysql:
-    image: mysql:5.6
-    environment:
-      MYSQL_DATABASE: movie_archive
-      MYSQL_ALLOW_EMPTY_PASSWORD: true
+
+  mssql:
+    build: 
+      context: ./Docker/mssql/Dockerfile
     ports:
       - "3306:3306"
+    networks:
+      - beckend
+
+networks:
+  beckend:
   
 
     

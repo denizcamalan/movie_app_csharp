@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "bGbDv0RKEPQpJaqaCkZxtMfcjL15rphRMMroJ2nWhCs=",
+  "Source": "movie_app_csharp",
+  "BasePath": "_content/movie_app_csharp",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
