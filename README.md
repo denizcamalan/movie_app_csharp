@@ -6,7 +6,8 @@ The application will use HTTP status codes to communicate the success or failure
 
 ## Getting Started
 
-1. git clone https://github.com/denizcamalan/movie_app_cshap.git
+1. git clone https://github.com/denizcamalan/movie_app_csharp.git
+
 
 2. docker run -d --name sql_server -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=reallyStrongPwd123' -p 1433:1433 mcr.microsoft.com/mssql/server:2019-latest
 
