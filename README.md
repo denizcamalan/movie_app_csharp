@@ -14,10 +14,8 @@ The application will use HTTP status codes to communicate the success or failure
 3. DB name : movie_archive ; add db_tables in movie_archive_Databse folder
 
 4. Run application
-```
-docker-compese up -d
-```
-4.  Browse Swagger UI [http://localhost:8080/swagger/index.html](http://localhost:5240/swagger/index.html#/)
+
+5.  Browse Swagger UI [http://localhost:8080/swagger/index.html](http://localhost:5240/swagger/index.html#/)
 
 5. Autherizion
 ```
